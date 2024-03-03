@@ -69,7 +69,11 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
     private JButton first, previous, next, last, add, edit, deleteButton, displayAll, searchId, searchSurname,
             saveChange, cancelChange;
     private JComboBox<String> genderCombo, departmentCombo, fullTimeCombo;
-    private JTextField idField, ppsField, surnameField, firstNameField, salaryField;
+    JTextField idField;
+    private JTextField ppsField;
+    JTextField surnameField;
+    private JTextField firstNameField;
+    private JTextField salaryField;
     private static EmployeeDetails frame = new EmployeeDetails();
     // font for labels, text fields and combo boxes
     Font font1 = new Font("SansSerif", Font.BOLD, 16);
@@ -341,7 +345,6 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
         if (isSomeoneToDisplay())
             new EmployeeSummaryDialog(getAllEmloyees());
     }// end displaySummaryDialog
-
     // display search by ID dialog
     private void displaySearchByIdDialog() {
         if (isSomeoneToDisplay())
@@ -529,7 +532,7 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
     }// end getNextFreeId
 
     // get values from text fields and create Employee object
-    private Employee getChangedDetails() {
+    Employee getChangedDetails() {
         boolean fullTime = false;
         Employee theEmployee;
         if (((String) fullTimeCombo.getSelectedItem()).equalsIgnoreCase("Yes"))
@@ -622,7 +625,7 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
     }// end cancelChange
 
     // check if any of records in file is active - ID is not 0
-    private boolean isSomeoneToDisplay() {
+    boolean isSomeoneToDisplay() {
         boolean someoneToDisplay = false;
         // open file for reading
         application.openReadFile(file.getAbsolutePath());

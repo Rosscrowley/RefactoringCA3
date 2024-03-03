@@ -88,11 +88,7 @@ public class RandomFile {
         } // end catch
 
         return currentRecordStart - RandomAccessEmployeeRecord.SIZE;// Return
-        // position
-        // where
-        // object
-        // starts in
-        // the file
+        // position where object starts in the file
     }// end addRecords
 
     // Change details for existing object

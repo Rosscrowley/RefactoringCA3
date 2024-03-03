@@ -7,6 +7,8 @@
 import java.awt.event.ActionEvent;
 
 public class SearchBySurnameDialog extends SearchDialog {
+
+    private SearchEmployee searchEmployee;
     public SearchBySurnameDialog(EmployeeDetails parent) {
         super(parent, "Search by Surname", "Surname");
     }
@@ -15,14 +17,14 @@ public class SearchBySurnameDialog extends SearchDialog {
     public void actionPerformed(ActionEvent e) {
         // if option search, search for Employee
         if(e.getSource() == search){
-            this.parent.searchBySurnameField.setText(searchField.getText());
-            // search Employee by surname
-            this.parent.searchEmployeeBySurname();
-            dispose();// dispose dialog
+            // Use the SearchEmployee instance to perform the search
+            this.searchEmployee.searchEmployeeBySurname(searchField.getText());
+            dispose(); // dispose dialog
         }// end if
         // else dispose dialog
-        else if(e.getSource() == cancel)
-            dispose();// dispose dialog
+        else if(e.getSource() == cancel){
+            dispose(); // dispose dialog
+        }
     }// end actionPerformed
 }// end class SearchBySurnameDialog
 
